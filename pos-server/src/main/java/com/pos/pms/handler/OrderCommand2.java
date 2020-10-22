@@ -6,19 +6,23 @@ import java.util.Iterator;
 import java.util.List;
 import com.pos.pms.domain.Bakery;
 import com.pos.pms.domain.ColdCoffee;
+import com.pos.pms.domain.ConeIcecream;
+import com.pos.pms.domain.CupIcecream;
 import com.pos.pms.domain.HotCoffee;
 import com.pos.pms.domain.Order;
 import com.pos.util.Prompt;
 
-public class OrderCommand implements Command {
+public class OrderCommand2 implements Command {
   List<Order> OrderList;
   List<HotCoffee> HotCoffeeList;
   List<ColdCoffee> ColdCoffeeList;
   List<Bakery> BakeryList;
+  List<ConeIcecream> ConeIcecreamList;
+  List<CupIcecream> CupIcecreamList;
 
 
 
-  public OrderCommand(List<Order> list) {
+  public OrderCommand2(List<Order> list) {
     this.OrderList = list;
   }
 
@@ -32,7 +36,7 @@ public class OrderCommand implements Command {
 
       int num = 0;
       Order order = new Order();
-      order.setName(Prompt.inputString(
+      order.setNo(Prompt.inputInt(
           "1)HotCoffee, 2)ColdCoffee, 3)bakery, 4)CupIcecream, 5)ConeIcecream",
           out, in));
       switch (num) {
@@ -45,8 +49,17 @@ public class OrderCommand implements Command {
         case 3:
           BakeryList();
           break;
+        case 4:
+          CupIcecreamList();
+          break;
+        case 5:
+          ConeIcecreamList();
     }
+      order.setName(Prompt.inputString("품목? ", out, in));
       order.setCount(Prompt.inputInt("갯수? ", out, in));
+      
+      out.println("결제 도와드리겠습니다.");
+
     } catch(Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());
     }
@@ -56,7 +69,7 @@ public class OrderCommand implements Command {
     Iterator<HotCoffee> iterator = HotCoffeeList.iterator();
     while (iterator.hasNext()) {
       HotCoffee hotCoffee = iterator.next();
-      System.out.printf("%s", hotCoffee.getName());
+      System.out.printf("%s(%d)", hotCoffee.getName(), hotCoffee.getPrice());
     }
   }
 
@@ -64,7 +77,7 @@ public class OrderCommand implements Command {
       Iterator<ColdCoffee> iterator = ColdCoffeeList.iterator();
       while (iterator.hasNext()) {
         ColdCoffee coldCoffee = iterator.next();
-        System.out.printf("%s", coldCoffee.getName());
+        System.out.printf("%s(%d)", coldCoffee.getName(), coldCoffee.getPrice());
       }
     }
 
@@ -73,7 +86,25 @@ public class OrderCommand implements Command {
     Iterator<Bakery> iterator = BakeryList.iterator();
     while (iterator.hasNext()) {
       Bakery bakery = iterator.next();
-      System.out.printf("%s", bakery.getName());
+      System.out.printf("%s(%d)", bakery.getName(), bakery.getPrice());
+    }
+
+  }
+
+  public void ConeIcecreamList() {
+    Iterator<ConeIcecream> iterator = ConeIcecreamList.iterator();
+    while (iterator.hasNext()) {
+      ConeIcecream coneIcecream= iterator.next();
+      System.out.printf("%s(%d)", coneIcecream.getName(), coneIcecream.getPrice());
+    }
+
+  }
+
+  public void CupIcecreamList() {
+    Iterator<CupIcecream> iterator = CupIcecreamList.iterator();
+    while (iterator.hasNext()) {
+      CupIcecream cupIcecream= iterator.next();
+      System.out.printf("%s(%d)", cupIcecream.getName(), cupIcecream.getPrice());
     }
 
   }
