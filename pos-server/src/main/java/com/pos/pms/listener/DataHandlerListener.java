@@ -16,10 +16,11 @@ import com.google.gson.Gson;
 import com.pos.context.ApplicationContextListener;
 import com.pos.pms.domain.Bakery;
 import com.pos.pms.domain.ColdCoffee;
+import com.pos.pms.domain.ConeIcecream;
+import com.pos.pms.domain.CupIcecream;
 import com.pos.pms.domain.Employee;
 import com.pos.pms.domain.HotCoffee;
-import com.pos.pms.domain.IceCreamCone;
-import com.pos.pms.domain.IceCreamCup;
+
 
 // 게시물, 회원, 프로젝트, 작업 데이터를 파일에서 로딩하고 파일로 저장하는 일을 한다.
 public class DataHandlerListener implements ApplicationContextListener {
@@ -36,11 +37,11 @@ public class DataHandlerListener implements ApplicationContextListener {
   List<Employee> employeeList = new ArrayList<>();
   File employeeFile = new File("./employee.json"); // 작업을 저장할 파일 정보
 
-  List<IceCreamCone> iceCreamConeList = new LinkedList<>();
-  File iceCreamConeFile = new File("./iceCreamCone.json"); // 프로젝트를 저장할 파일 정보
+  List<ConeIcecream> coneIcecreamList = new LinkedList<>();
+  File coneIcecreamFile = new File("./coneIcecreamList.json"); // 프로젝트를 저장할 파일 정보
 
-  List<IceCreamCup> iceCreamCupList = new ArrayList<>();
-  File iceCreamCupFile = new File("./iceCreamCup.json"); // 작업을 저장할 파일 정보
+  List<CupIcecream> cupIcecreamList = new ArrayList<>();
+  File cupIcecreamFile = new File("./cupIcecreamList.json"); // 작업을 저장할 파일 정보
 
   @Override
   public void contextInitialized(Map<String,Object> context) {
@@ -50,8 +51,8 @@ public class DataHandlerListener implements ApplicationContextListener {
     loadData(coldCoffeeList, coldCoffeeFile, ColdCoffee[].class);
     loadData(bakeryList, bakeryFile, Bakery[].class);
     loadData(employeeList, employeeFile, Employee[].class);
-    loadData(iceCreamConeList, iceCreamConeFile, IceCreamCone[].class);
-    loadData(iceCreamCupList, iceCreamCupFile, IceCreamCup[].class);
+    loadData(coneIcecreamList, coneIcecreamFile, ConeIcecream[].class);
+    loadData(cupIcecreamList, cupIcecreamFile, CupIcecream[].class);
 
     // 옵저버가 파일에서 데이터(게시글,회원,프로젝트,작업)를 읽어
     // List 컬렉션에 저장한 다음,
@@ -60,8 +61,8 @@ public class DataHandlerListener implements ApplicationContextListener {
     context.put("coldCoffeeList", coldCoffeeList);
     context.put("bakeryList", bakeryList);
     context.put("employeeList", employeeList);
-    context.put("iceCreamConeList", iceCreamConeList);
-    context.put("iceCreamCupList", iceCreamCupList);
+    context.put("coneIcecreamList", coneIcecreamList);
+    context.put("cupIcecreamList", cupIcecreamList);
   }
 
   @Override
@@ -72,8 +73,8 @@ public class DataHandlerListener implements ApplicationContextListener {
     saveData(coldCoffeeList, coldCoffeeFile);
     saveData(bakeryList, bakeryFile);
     saveData(employeeList, employeeFile);
-    saveData(iceCreamConeList, iceCreamConeFile);
-    saveData(iceCreamCupList, iceCreamCupFile);
+    saveData(coneIcecreamList, coneIcecreamFile);
+    saveData(cupIcecreamList, cupIcecreamFile);
   }
 
   private <T> void loadData(

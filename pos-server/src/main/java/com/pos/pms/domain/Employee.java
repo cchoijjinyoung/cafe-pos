@@ -5,12 +5,19 @@ import java.sql.Date;
 //Task 클래스는 더이상 CsvObject를 구현할 필요가 없다.
 //
 public class Employee {
+  private int no;
   private String name;
   private int age;
   private String jopPosition;
   private Date startDate;
-  private Date deadline;
+  //private Date deadline;
 
+  public int getNo() {
+    return no;
+  }
+  public void setNo(int no) {
+    this.no = no;
+  }
   public String getName() {
     return name;
   }
@@ -29,10 +36,16 @@ public class Employee {
   public void setJopPosition(String jopPosition) {
     this.jopPosition = jopPosition;
   }
-  public Date getDeadline() {
-    return deadline;
+  public Date getStartDate() {
+    return startDate;
   }
-  public void setDeadline(Date deadline) {
-    this.deadline = deadline;
+  public void setStartDate(Date startDate) {
+    this.startDate = startDate;
   }
+//  public Date getDeadline() {
+//    return deadline;
+//  }
+//  public void setDeadline(Date deadline) {
+//    this.deadline = deadline;
+//  }
 }
