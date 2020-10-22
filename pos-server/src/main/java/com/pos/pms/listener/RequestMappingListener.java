@@ -2,20 +2,6 @@ package com.pos.pms.listener;
 
 import java.util.List;
 import java.util.Map;
-import com.eomcs.pms.handler.CalculatorCommand;
-import com.eomcs.pms.handler.HelloCommand;
-import com.eomcs.pms.handler.MemberAddCommand;
-import com.eomcs.pms.handler.MemberDeleteCommand;
-import com.eomcs.pms.handler.MemberListCommand;
-import com.eomcs.pms.handler.MemberUpdateCommand;
-import com.eomcs.pms.handler.ProjectAddCommand;
-import com.eomcs.pms.handler.ProjectDeleteCommand;
-import com.eomcs.pms.handler.ProjectListCommand;
-import com.eomcs.pms.handler.ProjectUpdateCommand;
-import com.eomcs.pms.handler.TaskAddCommand;
-import com.eomcs.pms.handler.TaskDeleteCommand;
-import com.eomcs.pms.handler.TaskListCommand;
-import com.eomcs.pms.handler.TaskUpdateCommand;
 import com.pos.context.ApplicationContextListener;
 import com.pos.pms.domain.Bakery;
 import com.pos.pms.domain.ColdCoffee;
@@ -23,10 +9,24 @@ import com.pos.pms.domain.ConeIcecream;
 import com.pos.pms.domain.CupIcecream;
 import com.pos.pms.domain.Employee;
 import com.pos.pms.domain.HotCoffee;
+import com.pos.pms.handler.BakeryAddCommand;
+import com.pos.pms.handler.BakeryDeleteCommand;
+import com.pos.pms.handler.BakeryListCommand;
+import com.pos.pms.handler.ColdCoffeeAddCommand;
+import com.pos.pms.handler.ColdCoffeeDeleteCommand;
+import com.pos.pms.handler.ColdCoffeeListCommand;
+import com.pos.pms.handler.ConeIcecreamAddCommand;
+import com.pos.pms.handler.ConeIcecreamDeleteCommand;
+import com.pos.pms.handler.ConeIcecreamListCommand;
+import com.pos.pms.handler.CupIcecreamAddCommand;
+import com.pos.pms.handler.CupIcecreamDeleteCommand;
+import com.pos.pms.handler.CupIcecreamListCommand;
 import com.pos.pms.handler.EmployeeAddCommand;
 import com.pos.pms.handler.EmployeeDeleteCommand;
 import com.pos.pms.handler.EmployeeListCommand;
-import com.pos.pms.handler.EmployeeUpdateCommand;
+import com.pos.pms.handler.HotCoffeeAddCommand;
+import com.pos.pms.handler.HotCoffeeDeleteCommand;
+import com.pos.pms.handler.HotCoffeeListCommand;
 
 // 클라이언트 요청을 처리할 커맨드 객체를 준비한다.
 public class RequestMappingListener implements ApplicationContextListener {
@@ -45,27 +45,27 @@ public class RequestMappingListener implements ApplicationContextListener {
     EmployeeListCommand employeeListCommand = new EmployeeListCommand(employeeList);
     context.put("/employee/add", new EmployeeAddCommand(employeeList));
     context.put("/employee/list", employeeListCommand);
-    context.put("/employee/update", new EmployeeUpdateCommand(employeeList));
     context.put("/employee/delete", new EmployeeDeleteCommand(employeeList));
 
-    context.put("/member/list", new MemberListCommand(memberList));
-    context.put("/member/add", new MemberAddCommand(memberList));
-    context.put("/member/update", new MemberUpdateCommand(memberList));
-    context.put("/member/delete", new MemberDeleteCommand(memberList));
+    context.put("/bakery/list", new BakeryListCommand(bakeryList));
+    context.put("/bakery/add", new BakeryAddCommand(bakeryList));
+    context.put("/bakery/delete", new BakeryDeleteCommand(bakeryList));
 
-    context.put("/project/add", new ProjectAddCommand(projectList, memberListCommand));
-    context.put("/project/list", new ProjectListCommand(projectList));
-    context.put("/project/update", new ProjectUpdateCommand(projectList, memberListCommand));
-    context.put("/project/delete", new ProjectDeleteCommand(projectList));
+    context.put("/coldCoffee/add", new ColdCoffeeAddCommand(coldCoffeeList));
+    context.put("/coldCoffee/list", new ColdCoffeeListCommand(coldCoffeeList));
+    context.put("/coldCoffee/delete", new ColdCoffeeDeleteCommand(coldCoffeeList));
 
-    context.put("/task/add", new TaskAddCommand(taskList, memberListCommand));
-    context.put("/task/list", new TaskListCommand(taskList));
-    context.put("/task/update", new TaskUpdateCommand(taskList, memberListCommand));
-    context.put("/task/delete", new TaskDeleteCommand(taskList));
+    context.put("/hotCoffee/add", new HotCoffeeAddCommand(hotCoffeeList));
+    context.put("/hotCoffee/list", new HotCoffeeListCommand(hotCoffeeList));
+    context.put("/hotCoffee/delete", new HotCoffeeDeleteCommand(hotCoffeeList));
 
-    context.put("/hello", new HelloCommand());
+    context.put("/coneIcecream/add", new ConeIcecreamAddCommand(coneIcecreamList));
+    context.put("/coneIcecream/list", new ConeIcecreamListCommand(coneIcecreamList));
+    context.put("/coneIcecream/delete", new ConeIcecreamDeleteCommand(coneIcecreamList));
 
-    context.put("/calc", new CalculatorCommand());
+    context.put("/cupIcecream/add", new CupIcecreamAddCommand(cupIcecreamList));
+    context.put("/cupIcecream/list", new CupIcecreamListCommand(cupIcecreamList));
+    context.put("/cupIcecream/delete", new CupIcecreamDeleteCommand(cupIcecreamList));
   }
 
   @Override
