@@ -6,6 +6,7 @@ public class IceCream {
   private String name;
   private String vessel;
   private String size;
+  private int price;
 
   public String getName() {
     return name;
@@ -25,4 +26,10 @@ public class IceCream {
   public void setSize(String size) {
     this.size = size;
   }
+  public int getPrice() {
+    return price;
+  }
+  public void setPrice(int price) {
+    this.price = price;
+}
 }
