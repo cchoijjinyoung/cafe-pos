@@ -25,11 +25,13 @@ public class ConeIcecreamListCommand implements Command {
 
     while (iterator.hasNext()) {
       ConeIcecream coneIcecream = iterator.next();
-      out.printf("%s, %d, %s, %d\n",
+      out.println("------------------------------------------------------------");
+      out.printf(" %s | %d | %s | %d\n",
           coneIcecream.getName(),
           coneIcecream.getPrice(),
           coneIcecream.getSize(),
           coneIcecream.getNo());
+      out.println("------------------------------------------------------------");
 
     }
   }

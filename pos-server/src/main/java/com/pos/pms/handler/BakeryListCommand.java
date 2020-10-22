@@ -25,11 +25,13 @@ public class BakeryListCommand implements Command {
 
     while (iterator.hasNext()) {
       Bakery bakery = iterator.next();
-      out.printf("%s, %d, %s, %d\n",
+      out.println("------------------------------------------------------------");
+      out.printf(" %s | %d | %s | %d \n",
           bakery.getName(),
           bakery.getPrice(),
           bakery.getType(),
           bakery.getNo());
+      out.println("------------------------------------------------------------");
 
     }
   }

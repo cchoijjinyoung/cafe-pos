@@ -25,11 +25,13 @@ public class CupIcecreamListCommand implements Command {
 
     while (iterator.hasNext()) {
       CupIcecream cupIcecream = iterator.next();
-      out.printf("%s, %d, %s, %d\n",
+      out.println("------------------------------------------------------------");
+      out.printf(" %s | %d | %s | %d\n",
           cupIcecream.getName(),
           cupIcecream.getPrice(),
           cupIcecream.getSize(),
           cupIcecream.getNo());
+      out.println("------------------------------------------------------------");
 
     }
   }

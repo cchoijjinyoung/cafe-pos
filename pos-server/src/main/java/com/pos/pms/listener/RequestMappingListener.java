@@ -9,6 +9,7 @@ import com.pos.pms.domain.ConeIcecream;
 import com.pos.pms.domain.CupIcecream;
 import com.pos.pms.domain.Employee;
 import com.pos.pms.domain.HotCoffee;
+import com.pos.pms.domain.Order;
 import com.pos.pms.handler.BakeryAddCommand;
 import com.pos.pms.handler.BakeryDeleteCommand;
 import com.pos.pms.handler.BakeryListCommand;
@@ -27,6 +28,7 @@ import com.pos.pms.handler.EmployeeListCommand;
 import com.pos.pms.handler.HotCoffeeAddCommand;
 import com.pos.pms.handler.HotCoffeeDeleteCommand;
 import com.pos.pms.handler.HotCoffeeListCommand;
+import com.pos.pms.handler.OrderCommand;
 
 // 클라이언트 요청을 처리할 커맨드 객체를 준비한다.
 public class RequestMappingListener implements ApplicationContextListener {
@@ -41,6 +43,10 @@ public class RequestMappingListener implements ApplicationContextListener {
     List<ConeIcecream> coneIcecreamList = (List<ConeIcecream>) context.get("coneIcecreamList");
     List<CupIcecream> cupIcecreamList = (List<CupIcecream>) context.get("cupIcecreamList");
     List<Employee> employeeList = (List<Employee>) context.get("employeeList");
+    List<Order> orderList = (List<Order>) context.get("orderList");
+
+
+    context.put("/order", new OrderCommand(orderList));
 
     EmployeeListCommand employeeListCommand = new EmployeeListCommand(employeeList);
     context.put("/employee/add", new EmployeeAddCommand(employeeList));

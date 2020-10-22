@@ -25,12 +25,14 @@ public class EmployeeListCommand implements Command {
 
     while (iterator.hasNext()) {
       Employee employee = iterator.next();
-      out.printf("%d, %s, %s, %s, %d\n",
+      out.println("------------------------------------------------------------");
+      out.printf(" %d | %s | %s | %s | %d\n",
           employee.getNo(),
           employee.getName(),
           employee.getAge(),
           employee.getJopPosition(),
           employee.getStartDate());
+      out.println("------------------------------------------------------------");
     }
   }
 
