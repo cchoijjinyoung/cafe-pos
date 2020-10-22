@@ -28,8 +28,8 @@ public class CupIcecreamListCommand implements Command {
       out.printf("%s, %d, %s, %d\n",
           cupIcecream.getName(),
           cupIcecream.getPrice(),
-          cupIcecream.getSize());
-          cupIcecream.getNo();
+          cupIcecream.getSize(),
+          cupIcecream.getNo());
 
     }
   }

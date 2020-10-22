@@ -28,8 +28,8 @@ public class ColdCoffeeListCommand implements Command {
       out.printf("%s, %d, %s, %d\n",
           coldCoffee.getName(),
           coldCoffee.getPrice(),
-          coldCoffee.getSize());
-          coldCoffee.getNo();
+          coldCoffee.getSize(),
+          coldCoffee.getNo());
 
     }
   }

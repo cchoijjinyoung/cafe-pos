@@ -27,6 +27,7 @@ import com.pos.pms.handler.EmployeeListCommand;
 import com.pos.pms.handler.HotCoffeeAddCommand;
 import com.pos.pms.handler.HotCoffeeDeleteCommand;
 import com.pos.pms.handler.HotCoffeeListCommand;
+import com.pos.pms.handler.OrderCommand;
 
 // 클라이언트 요청을 처리할 커맨드 객체를 준비한다.
 public class RequestMappingListener implements ApplicationContextListener {
@@ -66,6 +67,7 @@ public class RequestMappingListener implements ApplicationContextListener {
     context.put("/cupIcecream/add", new CupIcecreamAddCommand(cupIcecreamList));
     context.put("/cupIcecream/list", new CupIcecreamListCommand(cupIcecreamList));
     context.put("/cupIcecream/delete", new CupIcecreamDeleteCommand(cupIcecreamList));
+    context.put("/order", new OrderCommand(context));
   }
 
   @Override
