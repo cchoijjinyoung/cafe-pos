@@ -2,7 +2,7 @@ package com.pos.pms.domain;
 
 //Task 클래스는 더이상 CsvObject를 구현할 필요가 없다.
 //
-public class IceCreamCup {
+public class IceCreamCone {
   private String name;
   private String size;
   private int price;
