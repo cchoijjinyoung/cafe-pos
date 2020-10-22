@@ -19,19 +19,17 @@ public class EmployeeAddCommand implements Command {
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
     try {
-      out.println("[게시물 등록]");
+      out.println("[직원 등록]");
 
       Employee employee = new Employee();
-      employee.setTitle(Prompt.inputString("제목? ", out, in));
-      employee.setNo(Prompt.inputInt("번호? ", out, in));
-      employee.setContent(Prompt.inputString("내용? ", out, in));
-      employee.setWriter(Prompt.inputString("작성자? ", out, in));
-      employee.setRegisteredDate(new Date(System.currentTimeMillis()));
-      employee.setViewCount(0);
+      employee.setNo(Prompt.inputInt("사번? ", out, in));
+      employee.setName(Prompt.inputString("성명? ", out, in));
+      employee.setAge(Prompt.inputInt("나이? ", out, in));
+      employee.setJopPosition(Prompt.inputString("직책? ", out, in));
+      employee.setStartDate(new Date(System.currentTimeMillis()));
+      employeeList.add(employee);
 
-      employeeList.add(board);
-
-      out.println("게시글을 등록하였습니다.");
+      out.println("직원을 등록하였습니다.");
 
     } catch(Exception e) {
       out.printf("작업 처리 중 오류 발생! - %s\n", e.getMessage());

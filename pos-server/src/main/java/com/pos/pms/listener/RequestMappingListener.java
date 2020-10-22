@@ -2,33 +2,31 @@ package com.pos.pms.listener;
 
 import java.util.List;
 import java.util.Map;
-import com.eomcs.context.ApplicationContextListener;
-import com.eomcs.pms.domain.Board;
-import com.eomcs.pms.domain.Member;
-import com.eomcs.pms.domain.Project;
-import com.eomcs.pms.domain.Task;
-import com.eomcs.pms.handler.BoardAddCommand;
-import com.eomcs.pms.handler.BoardDeleteCommand;
-import com.eomcs.pms.handler.BoardDetailCommand;
-import com.eomcs.pms.handler.BoardListCommand;
-import com.eomcs.pms.handler.BoardUpdateCommand;
 import com.eomcs.pms.handler.CalculatorCommand;
 import com.eomcs.pms.handler.HelloCommand;
 import com.eomcs.pms.handler.MemberAddCommand;
 import com.eomcs.pms.handler.MemberDeleteCommand;
-import com.eomcs.pms.handler.MemberDetailCommand;
 import com.eomcs.pms.handler.MemberListCommand;
 import com.eomcs.pms.handler.MemberUpdateCommand;
 import com.eomcs.pms.handler.ProjectAddCommand;
 import com.eomcs.pms.handler.ProjectDeleteCommand;
-import com.eomcs.pms.handler.ProjectDetailCommand;
 import com.eomcs.pms.handler.ProjectListCommand;
 import com.eomcs.pms.handler.ProjectUpdateCommand;
 import com.eomcs.pms.handler.TaskAddCommand;
 import com.eomcs.pms.handler.TaskDeleteCommand;
-import com.eomcs.pms.handler.TaskDetailCommand;
 import com.eomcs.pms.handler.TaskListCommand;
 import com.eomcs.pms.handler.TaskUpdateCommand;
+import com.pos.context.ApplicationContextListener;
+import com.pos.pms.domain.Bakery;
+import com.pos.pms.domain.ColdCoffee;
+import com.pos.pms.domain.ConeIcecream;
+import com.pos.pms.domain.CupIcecream;
+import com.pos.pms.domain.Employee;
+import com.pos.pms.domain.HotCoffee;
+import com.pos.pms.handler.EmployeeAddCommand;
+import com.pos.pms.handler.EmployeeDeleteCommand;
+import com.pos.pms.handler.EmployeeListCommand;
+import com.pos.pms.handler.EmployeeUpdateCommand;
 
 // 클라이언트 요청을 처리할 커맨드 객체를 준비한다.
 public class RequestMappingListener implements ApplicationContextListener {
@@ -37,33 +35,31 @@ public class RequestMappingListener implements ApplicationContextListener {
   @Override
   public void contextInitialized(Map<String,Object> context) {
     // 옵저버가 작업한 결과를 맵에서 꺼낸다.
-    List<Board> boardList = (List<Board>) context.get("boardList");
-    List<Member> memberList = (List<Member>) context.get("memberList");
-    List<Project> projectList = (List<Project>) context.get("projectList");
-    List<Task> taskList = (List<Task>) context.get("taskList");
+    List<Bakery> bakeryList = (List<Bakery>) context.get("bakeryList");
+    List<ColdCoffee> coldCoffeeList = (List<ColdCoffee>) context.get("coldCoffeeList");
+    List<HotCoffee> hotCoffeeList = (List<HotCoffee>) context.get("hotCoffeeList");
+    List<ConeIcecream> coneIcecreamList = (List<ConeIcecream>) context.get("coneIcecreamList");
+    List<CupIcecream> cupIcecreamList = (List<CupIcecream>) context.get("cupIcecreamList");
+    List<Employee> employeeList = (List<Employee>) context.get("employeeList");
 
-    context.put("/board/add", new EmployeeAddCommand(boardList));
-    context.put("/board/list", new EmployeeListCommand(boardList));
-    context.put("/board/detail", new BoardDetailCommand(boardList));
-    context.put("/board/update", new EmployeeUpdateCommand(boardList));
-    context.put("/board/delete", new EmployeeDeleteCommand(boardList));
+    EmployeeListCommand employeeListCommand = new EmployeeListCommand(employeeList);
+    context.put("/employee/add", new EmployeeAddCommand(employeeList));
+    context.put("/employee/list", employeeListCommand);
+    context.put("/employee/update", new EmployeeUpdateCommand(employeeList));
+    context.put("/employee/delete", new EmployeeDeleteCommand(employeeList));
 
-    MemberListCommand memberListCommand = new MemberListCommand(memberList);
+    context.put("/member/list", new MemberListCommand(memberList));
     context.put("/member/add", new MemberAddCommand(memberList));
-    context.put("/member/list", memberListCommand);
-    context.put("/member/detail", new MemberDetailCommand(memberList));
     context.put("/member/update", new MemberUpdateCommand(memberList));
     context.put("/member/delete", new MemberDeleteCommand(memberList));
 
     context.put("/project/add", new ProjectAddCommand(projectList, memberListCommand));
     context.put("/project/list", new ProjectListCommand(projectList));
-    context.put("/project/detail", new ProjectDetailCommand(projectList));
     context.put("/project/update", new ProjectUpdateCommand(projectList, memberListCommand));
     context.put("/project/delete", new ProjectDeleteCommand(projectList));
 
     context.put("/task/add", new TaskAddCommand(taskList, memberListCommand));
     context.put("/task/list", new TaskListCommand(taskList));
-    context.put("/task/detail", new TaskDetailCommand(taskList));
     context.put("/task/update", new TaskUpdateCommand(taskList, memberListCommand));
     context.put("/task/delete", new TaskDeleteCommand(taskList));
 
