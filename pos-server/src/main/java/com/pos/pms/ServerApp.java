@@ -35,9 +35,11 @@ public class ServerApp {
   List<ApplicationContextListener> listeners = new ArrayList<>();
 
   // 옵저버를 등록하는 메서드
+
   public void addApplicationContextListener(ApplicationContextListener listener) {
     listeners.add(listener);
   }
+
 
   // 옵저버를 제거하는 메서드
   public void removeApplicationContextListener(ApplicationContextListener listener) {

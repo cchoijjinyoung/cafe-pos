@@ -25,11 +25,13 @@ public class ColdCoffeeListCommand implements Command {
 
     while (iterator.hasNext()) {
       ColdCoffee coldCoffee = iterator.next();
-      out.printf("%s, %d, %s, %d\n",
+      out.println("------------------------------------------------------------");
+      out.printf(" %s | %d | %s | %d\n",
           coldCoffee.getName(),
           coldCoffee.getPrice(),
           coldCoffee.getSize(),
           coldCoffee.getNo());
+      out.println("------------------------------------------------------------");
 
     }
   }

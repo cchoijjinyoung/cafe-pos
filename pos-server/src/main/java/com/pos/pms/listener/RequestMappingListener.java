@@ -9,6 +9,7 @@ import com.pos.pms.domain.ConeIcecream;
 import com.pos.pms.domain.CupIcecream;
 import com.pos.pms.domain.Employee;
 import com.pos.pms.domain.HotCoffee;
+import com.pos.pms.domain.Order;
 import com.pos.pms.handler.BakeryAddCommand;
 import com.pos.pms.handler.BakeryDeleteCommand;
 import com.pos.pms.handler.BakeryListCommand;
@@ -42,6 +43,10 @@ public class RequestMappingListener implements ApplicationContextListener {
     List<ConeIcecream> coneIcecreamList = (List<ConeIcecream>) context.get("coneIcecreamList");
     List<CupIcecream> cupIcecreamList = (List<CupIcecream>) context.get("cupIcecreamList");
     List<Employee> employeeList = (List<Employee>) context.get("employeeList");
+    List<Order> orderList = (List<Order>) context.get("orderList");
+
+
+    context.put("/order", new OrderCommand(orderList, hotCoffeeList, coldCoffeeList, bakeryList, cupIcecreamList, coneIcecreamList ));
 
     EmployeeListCommand employeeListCommand = new EmployeeListCommand(employeeList);
     context.put("/employee/add", new EmployeeAddCommand(employeeList));
@@ -67,7 +72,6 @@ public class RequestMappingListener implements ApplicationContextListener {
     context.put("/cupIcecream/add", new CupIcecreamAddCommand(cupIcecreamList));
     context.put("/cupIcecream/list", new CupIcecreamListCommand(cupIcecreamList));
     context.put("/cupIcecream/delete", new CupIcecreamDeleteCommand(cupIcecreamList));
-    context.put("/order", new OrderCommand(context));
   }
 
   @Override
