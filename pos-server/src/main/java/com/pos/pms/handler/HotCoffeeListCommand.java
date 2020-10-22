@@ -25,7 +25,7 @@ public class HotCoffeeListCommand implements Command {
 
     while (iterator.hasNext()) {
       HotCoffee hotCoffee = iterator.next();
-      out.printf("%s, %d, %s\n",
+      out.printf("%s, %d, %s, %d\n",
           hotCoffee.getName(),
           hotCoffee.getPrice(),
           hotCoffee.getSize());
