@@ -4,7 +4,14 @@ public class Bakery {
   private int price;
   private String name;
   private String type;
+  private int no;
 
+  public int getNo() {
+    return no;
+  }
+  public void setNo(int no) {
+    this.no = no;
+  }
   public int getPrice() {
     return price;
   }
