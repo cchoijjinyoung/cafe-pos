@@ -31,7 +31,7 @@ public class ClientApp {
     port = Integer.parseInt(args[1]);
 
     while (true) {
-      String input = Prompt.inputString("명령> ");
+      String input = Prompt.inputString("명령>> ");
       if (input.equalsIgnoreCase("quit")) {
         break;
       }

@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Prompt {
   static Scanner keyboardScan = new Scanner(System.in);
 
-  // 다른 패키지에서 메서드를 호출할 수 있도록 사용 범위를 public 으로 공개한다.
+  // 다른 패키지에서 메서드를 호출할 수 있도록 사용 범위를 public 으로 공개한다
   public static String inputString(String title) {
     System.out.print(title);
     return keyboardScan.nextLine();
