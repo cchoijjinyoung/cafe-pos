@@ -28,8 +28,8 @@ public class ConeIcecreamListCommand implements Command {
       out.printf("%s, %d, %s, %d\n",
           coneIcecream.getName(),
           coneIcecream.getPrice(),
-          coneIcecream.getSize());
-          coneIcecream.getNo();
+          coneIcecream.getSize(),
+          coneIcecream.getNo());
 
     }
   }

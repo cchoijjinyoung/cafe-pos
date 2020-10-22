@@ -28,8 +28,8 @@ public class BakeryListCommand implements Command {
       out.printf("%s, %d, %s, %d\n",
           bakery.getName(),
           bakery.getPrice(),
-          bakery.getType());
-          bakery.getNo();
+          bakery.getType(),
+          bakery.getNo());
 
     }
   }

@@ -28,8 +28,8 @@ public class HotCoffeeListCommand implements Command {
       out.printf("%s, %d, %s, %d\n",
           hotCoffee.getName(),
           hotCoffee.getPrice(),
-          hotCoffee.getSize());
-          hotCoffee.getNo();
+          hotCoffee.getSize(),
+          hotCoffee.getNo());
 
     }
   }
