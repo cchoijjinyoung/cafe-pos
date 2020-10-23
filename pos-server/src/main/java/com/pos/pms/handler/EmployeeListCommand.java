@@ -25,12 +25,8 @@ public class EmployeeListCommand implements Command {
 
     while (iterator.hasNext()) {
       Employee employee = iterator.next();
-<<<<<<< HEAD
-      out.printf("%d, %s, %d, %s, %s\n",
-=======
       out.println("------------------------------------------------------------");
       out.printf(" %d | %s | %s | %s | %d\n",
->>>>>>> branch 'main' of https://github.com/cchoijjinyoung/cafe-pos.git
           employee.getNo(),
           employee.getName(),
           employee.getAge(),
