@@ -19,7 +19,18 @@ public class OrderListCommand implements Command {
 
     Iterator<Order> iterator = OrderList.iterator();
 
-    //while (iter);
+    while (iterator.hasNext()) {
+      Order order  = iterator.next();
+      int sum = (order.getPrice()*order.getNo());
+      out.println("------------------------------------------------------------");
+      out.printf(" %s | %d원 | %d | %d\n",
+          order.getName(),
+          order.getPrice(),
+          order.getNo());
+      out.println(sum);
+      out.println("------------------------------------------------------------");
+
+    }
   }
 
 }

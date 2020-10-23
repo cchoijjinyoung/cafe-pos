@@ -17,7 +17,7 @@ public class ConeIcecreamListCommand implements Command {
 
   @Override
   public void execute(PrintWriter out, BufferedReader in) {
-    out.println("[Cold커피 목록]");
+    out.println("[콘아이스크림 목록]");
 
     // 전체 목록을 조회할 때 `Iterator` 객체를 사용한다.
     // 만약 목록의 일부만 조회하면다면 인덱스를 직접 다루는 이전 방식을 사용해야 한다.
@@ -26,7 +26,7 @@ public class ConeIcecreamListCommand implements Command {
     while (iterator.hasNext()) {
       ConeIcecream coneIcecream = iterator.next();
       out.println("------------------------------------------------------------");
-      out.printf(" %s | %d | %s | %d\n",
+      out.printf(" %s | %d원 | %s | %d\n",
           coneIcecream.getName(),
           coneIcecream.getPrice(),
           coneIcecream.getSize(),

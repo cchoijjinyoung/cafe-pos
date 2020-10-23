@@ -4,7 +4,14 @@ public class Order {
   private String name;
   private int count;
   private int no;
+  private int price;
 
+  public int getPrice() {
+    return price;
+  }
+  public void setPrice(int price) {
+    this.price = price;
+  }
   public int getNo() {
     return no;
   }
