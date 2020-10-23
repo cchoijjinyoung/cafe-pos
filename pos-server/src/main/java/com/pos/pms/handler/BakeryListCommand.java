@@ -26,7 +26,7 @@ public class BakeryListCommand implements Command {
     while (iterator.hasNext()) {
       Bakery bakery = iterator.next();
       out.println("------------------------------------------------------------");
-      out.printf(" %s | %d | %s | %d \n",
+      out.printf(" %s | %d원 | %s | %d \n",
           bakery.getName(),
           bakery.getPrice(),
           bakery.getType(),

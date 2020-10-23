@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 []
+=======
+[{"price":2000,"name":"아메리카노","size":"M","no":11},{"price":2500,"name":"라떼","size":"S","no":12}]
+>>>>>>> branch 'main' of https://github.com/cchoijjinyoung/cafe-pos.git
